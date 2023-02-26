@@ -41,6 +41,18 @@ class Stack:
        else:
         print(self.__data)  
 
+  #maintaining ascending order
+def pushStack(self, value):
+      if self.isEmpty():
+        self.push(value)
+      else:
+        temp_stack = Stack()
+        while (not self.isEmpty()) and self.peek() < value:
+            temp_stack.push(self.pop())
+        self.push(value)
+        while not temp_stack.isEmpty():
+            self.push(temp_stack.pop())
+
 
 def reverseString(str):
         s = Stack()
