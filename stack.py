@@ -41,6 +41,23 @@ class Stack:
        else:
         print(self.__data)  
 
+
+#checks the ordering of brackets in a stack/list
+def checkBrackets(self):
+    brackets_open = ["(", "[", "{"]
+    brackets_close = [")", "]", "}"]
+    stack = Stack()
+
+    for bracket in self.__data:
+        if bracket in brackets_open:
+            stack.push(bracket)
+        elif bracket in brackets_close:
+            if stack.isEmpty():
+                return False
+            if brackets_close.index(bracket) != brackets_open.index(stack.pop()):
+                return False
+    return stack.isEmpty()
+
   #maintaining ascending order
 def pushStack(self, value):
       if self.isEmpty():
@@ -53,7 +70,21 @@ def pushStack(self, value):
         while not temp_stack.isEmpty():
             self.push(temp_stack.pop())
 
-
+def LargestOnTop(self):
+        stack=Stack()
+        if self.isempty():
+           print("Stack is empty")
+        else:
+            max=self.peek()
+            for i in self.__data:
+                if max<i:
+                    max=i
+            for i in self.__data:
+                if(i != max):
+                    stack.push(i)
+            stack.push(max)
+            return stack
+        
 def reverseString(str):
         s = Stack()
         for ch in str:
@@ -67,3 +98,20 @@ def reverseString(str):
         return rev
 
         print(reverseString("WATERMELON"))
+      
+
+def textEditor(self):
+        print('Press 1 to enter string and 2 to delete string')
+        f=int(input())
+        if f==1:
+            print('how many words do you want to enter?')
+            wordcnt=int(input())
+            for i in range(wordcnt):
+                string=input()
+                self.push(string)
+        elif f==2:
+            if self.isempty():
+                print('stack empty')
+            else:
+                self.pop()
+        print(self.__data)
